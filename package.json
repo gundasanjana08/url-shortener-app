@@ -6,21 +6,31 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "next lint",
+    "db:push": "npx dotenv -c -- drizzle-kit push --config ./drizzle.config.ts",
+    "db:push-final": "npx drizzle-kit push --config ./drizzle.config.ts"
   },
   "dependencies": {
-    "next": "16.0.3",
-    "react": "19.2.0",
-    "react-dom": "19.2.0"
+    "@prisma/client": "^6.19.0",
+    "drizzle-orm": "^0.30.10",
+    "next": "14.2.3",
+    "pg": "^8.11.5",
+    "react": "^18",
+    "react-dom": "^18"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "16.0.3",
-    "tailwindcss": "^4",
+    "@types/pg": "^8.11.4",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "autoprefixer": "^10.4.22",
+    "dotenv-cli": "^7.4.2",
+    "drizzle-kit": "^0.21.2",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.3",
+    "postcss": "^8.5.6",
+    "prisma": "^6.19.0",
+    "tailwindcss": "^3.4.18",
     "typescript": "^5"
   }
 }
