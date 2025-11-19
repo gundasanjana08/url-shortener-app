@@ -14,7 +14,8 @@ export async function POST(req: Request) {
     return NextResponse.json(link)
   } catch (err) {
     console.error('Error in /api/shorten:', err)
-    return NextResponse.json({ error: 'Failed to shorten link' }, { status: 500 })
+    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 })
   }
 }
+
 
