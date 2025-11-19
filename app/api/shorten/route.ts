@@ -4,7 +4,13 @@ import { nanoid } from 'nanoid'
 
 export async function POST(req: Request) {
   try {
-    const { url } = await req.json()
+    const body = await req.json()
+    const url = body.url
+
+    if (!url) {
+      return NextResponse.json({ error: 'Missing URL' }, { status: 400 })
+    }
+
     const slug = nanoid(6)
 
     const link = await prisma.link.create({
@@ -14,8 +20,9 @@ export async function POST(req: Request) {
     return NextResponse.json(link)
   } catch (err) {
     console.error('Error in /api/shorten:', err)
-    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 })
+    return NextResponse.json({ error: 'Server error' }, { status: 500 })
   }
 }
+
 
 
