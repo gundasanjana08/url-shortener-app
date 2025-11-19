@@ -17,7 +17,11 @@ export async function POST(req: Request) {
       data: { slug, originalUrl: url },
     })
 
-    return NextResponse.json(link)
+    // Important: return slug and originalUrl
+    return NextResponse.json({
+      slug: link.slug,
+      originalUrl: link.originalUrl,
+    })
   } catch (err) {
     console.error('Error in /api/shorten:', err)
     return NextResponse.json({ error: 'Server error' }, { status: 500 })
